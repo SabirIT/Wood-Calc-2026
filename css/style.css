@@ -1,0 +1,300 @@
+/* =====================================================
+   Wood Calculator - styles
+   Sections: 1 Colors | 2 Base | 3 Layout | 4 Tabs
+             5 Inputs | 6 Result & buttons | 7 List | 8 Print
+   ===================================================== */
+
+
+/* ---------- 1. COLORS (light and dark) ---------- */
+
+:root {
+  --bg: #f6f1ea;      /* page background */
+  --card: #ffffff;    /* card background */
+  --tx: #2b2118;      /* main text */
+  --mu: #7a6a5a;      /* muted text */
+  --ac: #8a4b1f;      /* accent (brown) */
+  --ac2: #ffffff;     /* text on accent */
+  --bd: #e2d6c7;      /* borders */
+  --rd: #b3261e;      /* red (delete, errors) */
+
+  box-sizing: border-box;
+  /* keeps content away from phone notches / bars */
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Dark mode when the phone is set to dark */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1a1410;
+    --card: #261e17;
+    --tx: #f1e8dc;
+    --mu: #a89884;
+    --ac: #d98a4e;
+    --ac2: #1a1410;
+    --bd: #3a2f25;
+    --rd: #ff8a80;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1a1410;
+  --card: #261e17;
+  --tx: #f1e8dc;
+  --mu: #a89884;
+  --ac: #d98a4e;
+  --ac2: #1a1410;
+  --bd: #3a2f25;
+  --rd: #ff8a80;
+}
+
+
+/* ---------- 2. BASE ---------- */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--tx);
+  font: 16px system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 4px 0 12px;
+}
+
+
+/* ---------- 3. LAYOUT ---------- */
+
+.w {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 14px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+
+/* ---------- 4. TABS ---------- */
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--bd);
+  background: transparent;
+  color: var(--tx);
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.tabs button.on {
+  background: var(--ac);
+  color: var(--ac2);
+  border-color: var(--ac);
+}
+
+
+/* ---------- 5. INPUTS ---------- */
+
+/* Field names: Length, Width, Thickness, Roundness (bold and bigger) */
+.lb {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--tx);
+  margin: 14px 0 6px;
+}
+
+.f {
+  position: relative;   /* unit label (ft / in) sits inside the box */
+}
+
+input {
+  width: 100%;
+  padding: 11px 34px 11px 10px;
+  font-size: 17px;
+  border: 1px solid var(--bd);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--tx);
+}
+
+.f span {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: var(--mu);
+}
+
+
+/* ---------- 6. RESULT & BUTTONS ---------- */
+
+.res {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--bg);
+  font-size: 14px;
+  color: var(--mu);
+}
+
+.res b {
+  display: block;
+  font-size: 22px;
+  color: var(--tx);
+}
+
+.err {
+  color: var(--rd);
+  font-size: 13px;
+  min-height: 16px;
+  margin-top: 6px;
+}
+
+.add {
+  width: 100%;
+  margin-top: 10px;
+  padding: 13px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--ac);
+  color: var(--ac2);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* "Save list as PDF" button: outlined style */
+#pdf {
+  background: transparent;
+  color: var(--ac);
+  border: 1px solid var(--ac);
+  margin-top: 12px;
+}
+
+
+/* ---------- 7. LIST ---------- */
+
+.hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clr {
+  background: none;
+  border: 0;
+  color: var(--rd);
+  font-size: 14px;
+}
+
+/* List shown as a table */
+.lt {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.lt th {
+  font-size: 12px;
+  color: var(--mu);
+  text-align: center;
+  padding: 6px 2px;
+  border-bottom: 2px solid var(--bd);
+}
+
+.lt td {
+  text-align: center;
+  padding: 9px 2px;
+  border-top: 1px solid var(--bd);
+}
+
+.lt .v {
+  font-weight: 700;
+}
+
+.lt button {
+  border: 0;
+  background: none;
+  color: var(--rd);
+  font-size: 20px;
+}
+
+.em {
+  color: var(--mu);
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+.tot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 700;
+  padding-top: 10px;
+  border-top: 2px solid var(--tx);
+  margin-top: 4px;
+}
+
+
+/* ---------- 8. PRINT / SAVE AS PDF ---------- */
+
+/* The PDF table is hidden on screen */
+#pr {
+  display: none;
+}
+
+@media print {
+  body {
+    background: #fff !important;
+  }
+
+  .w {
+    display: none !important;   /* hide the whole app */
+  }
+
+  #pr {
+    display: block;             /* show only the PDF table */
+    color: #000;
+    background: #fff;
+    font: 14px system-ui, sans-serif;
+    padding: 16px;
+  }
+
+  #pr table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  #pr td,
+  #pr th {
+    border: 1px solid #999;
+    padding: 6px;
+    text-align: left;
+  }
+
+  #pr td,
+  #pr th {
+    text-align: center;
+  }
+}

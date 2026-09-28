@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Wood Calculator</title>
+    <meta name="theme-color" content="#8a4b1f" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="w">
+      <h1>🪵 Wood Calculator</h1>
+
+      <!-- ===== Calculator card ===== -->
+      <div class="card">
+        <!-- Tabs: switch between Size Wood and Log Wood -->
+        <div class="tabs">
+          <button id="t1" class="on">Size Wood</button>
+          <button id="t2">Log Wood</button>
+        </div>
+
+        <!-- Size Wood inputs (order: Width -> Thickness -> Length) -->
+        <div id="b">
+          <div class="lb" id="lbb">Width (inch)</div>
+          <div class="f">
+            <input id="b1" type="number" inputmode="decimal" placeholder="0" />
+            <span>in</span>
+          </div>
+        </div>
+
+        <div id="c">
+          <div class="lb">Thickness (inch)</div>
+          <div class="f">
+            <input id="c1" type="number" inputmode="decimal" placeholder="0" />
+            <span>in</span>
+          </div>
+        </div>
+
+        <div id="a">
+          <div class="lb" id="la">Length (ft, e.g. 6.5)</div>
+          <div class="f">
+            <input id="a1" type="number" inputmode="decimal" placeholder="0" />
+            <span>ft</span>
+          </div>
+        </div>
+
+        <!-- Log Wood inputs -->
+        <div id="lg">
+          <div class="lb">Length (ft, e.g. 6.5)</div>
+          <div class="f">
+            <input id="l2" type="text" inputmode="decimal" placeholder="0" />
+            <span>ft</span>
+          </div>
+          <div class="lb">Roundness (3 ft 7 in = type 3.7)</div>
+          <div class="f">
+            <input id="l1" type="text" inputmode="decimal" placeholder="0.0" />
+            <span>ft.in</span>
+          </div>
+        </div>
+
+        <!-- Live result, error message and add button -->
+        <div class="res" id="res">Enter size to see volume<b>—</b></div>
+        <div class="err" id="er"></div>
+        <button class="add" id="add">Calculate &amp; Add to List</button>
+      </div>
+
+      <!-- ===== List card (separate list for each wood type) ===== -->
+      <div class="card">
+        <div class="hd">
+          <b id="lt">List</b>
+          <button class="clr" id="clr">Clear all</button>
+        </div>
+        <div id="ls"></div>
+        <div class="tot">
+          <span>Total</span>
+          <span id="tt">0.00 cft</span>
+        </div>
+        <button class="add" id="pdf">Save list as PDF</button>
+      </div>
+    </div>
+
+    <!-- Hidden area used only when printing / saving the PDF -->
+    <div id="pr"></div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
